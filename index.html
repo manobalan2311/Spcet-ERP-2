@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student & Professor Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Add your CSS file here -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <form id="loginForm" class="login-form">
+      <label>
+        Register Number
+        Login Type
+        <select id="loginRole" name="role">
+          <option value="student">Student</option>
+          <option value="professor">Professor</option>
+        </select>
+      </label>
+      <label>
+        <span id="identifierLabel">Register Number</span>
+        <input id="registerNumber" name="registerNumber" autocomplete="username" value="22CSE001" required>
+      </label>
+      <button class="primary-action" type="submit">Login</button>
+      <button id="showCreateAccount" class="ghost-action" type="button">Create Student Account</button>
+      <p id="loginError" class="form-error" role="alert"></p>
+    </form>
+
+    <form id="registerForm" class="login-form is-hidden">
+      <label>
+        Student Name
+        <input name="name" autocomplete="name" required>
+      </label>
+      <label>
+        Register Number
+        <input name="registerNumber" autocomplete="username" required>
+      </label>
+      <label>
+        Department
+        <input name="department" value="Computer Science and Engineering" required>
+      </label>
+      <label>
+        Semester
+        <input name="semester" type="number" min="1" max="8" value="1" required>
+      </label>
+      <label>
+        Email
+        <input name="email" type="email" required>
+      </label>
+      <label>
+        Password
+        <input name="password" type="password" minlength="6" required>
+      </label>
+      <button class="primary-action" type="submit">Create Account</button>
+      <button id="showLogin" class="ghost-action" type="button">Back to Login</button>
+      <p id="registerError" class="form-error" role="alert"></p>
+    </form>
+
+    <div class="demo-card">
+      <span>Demo login</span>
+      <span>Demo student login</span>
+      <strong>22CSE001 / student123</strong>
+      <span>Demo professor login</span>
+      <strong>PROF001 / professor123</strong>
+    </div>
+
+    <nav>
+      <button class="nav-item active" data-view="dashboard">Dashboard</button>
+      <button class="nav-item" data-view="marks">Marks</button>
+      <button class="nav-item" data-view="attendance">Attendance</button>
+      <button class="nav-item" data-view="timetable">Timetable</button>
+      <button class="nav-item" data-view="doubtAi">AI Doubts</button>
+      <button class="nav-item" data-view="projectAi">Project AI</button>
+      <button class="nav-item" data-view="fees">Fees</button>
+      <button class="nav-item" data-view="notifications">HOD Desk</button>
+      <button class="nav-item" data-view="profile">Profile</button>
+      <button class="nav-item" data-view="resume">Resume</button>
+      <button class="nav-item" data-role="student" data-view="marks">Marks</button>
+      <button class="nav-item" data-role="student" data-view="attendance">Attendance</button>
+      <button class="nav-item" data-role="student" data-view="timetable">Timetable</button>
+      <button class="nav-item" data-role="student" data-view="notes">Subject Notes</button>
+      <button class="nav-item" data-role="student" data-view="doubtAi">AI Doubts</button>
+      <button class="nav-item" data-role="student" data-view="projectAi">Project AI</button>
+      <button class="nav-item" data-role="student" data-view="fees">Fees</button>
+      <button class="nav-item" data-role="student" data-view="notifications">Notifications</button>
+      <button class="nav-item" data-role="student" data-view="profile">Profile</button>
+      <button class="nav-item" data-role="student" data-view="resume">Resume</button>
+      <button class="nav-item" data-role="professor" data-view="professorStudents">Manage Students</button>
+      <button class="nav-item" data-role="professor" data-view="professorNotes">Upload Notes</button>
+    </nav>
+
+    <section id="notes" class="view" aria-labelledby="notesHeading">
+      <div class="view-heading">
+        <div>
+          <p class="eyebrow">Learning Material</p>
+          <h3 id="notesHeading">Subject notes</h3>
+        </div>
+      </div>
+      <div id="notesGrid" class="notes-grid"></div>
+    </section>
+
+    <section id="doubtAi" class="view" aria-labelledby="doubtHeading">
+    </section>
+
+    <section id="professorStudents" class="view" aria-labelledby="professorStudentsHeading">
+      <div class="view-heading">
+        <div>
+          <p class="eyebrow">Professor Portal</p>
+          <h3 id="professorStudentsHeading">Manage marks and attendance</h3>
+        </div>
+      </div>
+      <div id="professorStudentList" class="professor-list"></div>
+    </section>
+
+    <section id="professorNotes" class="view" aria-labelledby="professorNotesHeading">
+      <div class="view-heading">
+        <div>
+          <p class="eyebrow">Professor Portal</p>
+          <h3 id="professorNotesHeading">Upload subject notes</h3>
+        </div>
+      </div>
+      <form id="noteForm" class="profile-grid">
+        <label>
+          Student
+          <select name="studentSubject" required></select>
+        </label>
+        <label>
+          Note Title
+          <input name="title" required>
+        </label>
+        <label class="wide-field">
+          Note Content
+          <textarea name="content" rows="5" required></textarea>
+        </label>
+        <button class="primary-action" type="submit">Upload Note</button>
+        <p id="noteMessage" class="form-success" role="status"></p>
+      </form>
+    </section>
+  </div>
+  <!-- Add your JS file here -->
+  <script src="script.js"></script>
+</body>
+</html>
